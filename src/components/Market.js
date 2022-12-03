@@ -25,11 +25,16 @@ function Market() {
   },[])
 
   const fetchNFTs = async () => {
-    const modal = new web3modal();
-    const connection = await modal.connect()
-    const provider = new ethers.providers.Web3Provider(connection)
-    const signer = provider.getSigner()
-    const contract = new ethers.Contract(contractAddress, contractAbi.abi, signer)
+    const provider = new ethers.providers.JsonRpcProvider(
+      `https://polygon-mumbai.infura.io/v3/ec07e9b3ec4f497a9305f1a9cd16dd82`
+    );
+
+
+    // const modal = new web3modal();
+    // const connection = await modal.connect()
+    // const provider = new ethers.providers.Web3Provider(connection)
+    // const signer = provider.getSigner()
+    const contract = new ethers.Contract(contractAddress, contractAbi.abi, provider)
     const data = await contract.fetchMarket();
     const items = await Promise.all(
       data.map(async (i) => {
