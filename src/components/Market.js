@@ -26,7 +26,7 @@ function Market() {
 
   const fetchNFTs = async () => {
     const provider = new ethers.providers.JsonRpcProvider(
-      `https://polygon-mumbai.infura.io/v3/ec07e9b3ec4f497a9305f1a9cd16dd82`
+      `https://polygon-mumbai.infura.io/v3/eec39d04a1064883bf94ec917264ce9a`
     );
 
 
